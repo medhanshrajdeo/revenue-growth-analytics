@@ -323,32 +323,15 @@ Lift Index Avg = AVERAGE(promotion_performance[lift_index_vs_category])
   Generalization to other CPG channels (convenience, foodservice, e-commerce)
   requires care.
 
-## Resume Bullets Supported by This Project
-
-- Evaluated promotions across 4,910 beverage SKUs in the Dunnhumby Complete Journey
-  dataset, identifying 36 SKUs delivering 2.4x or higher lift relative to category
-  averages using a dual-signal promo flag (causal display/mailer + discount-field)
-  and velocity-normalized lift calculation
-- Analyzed purchase behavior for 2,500 households, quantifying discount and coupon
-  impacts on repeat purchases and finding that the Promo-Sensitive segment (62.5% of
-  households) drove 32% of beverage revenue while the High-Value segment (25% of
-  households) drove 64%
-- Built a Power BI-ready dataset with 17 commercial KPIs and a 70-scenario what-if
-  simulator across discount tiers (5/10/15/20%) and coupon scenarios for 7 beverage
-  categories
-
 ## Presentation Deck
 
-A five-slide carousel (1080×1080) summarizing the analysis, generated programmatically
-by `scripts/make_linkedin_visuals.py` directly from the exported data — fully reproducible,
-no manual chart edits.
+
 
 | | |
 |:-:|:-:|
 | <img src="outputs/linkedin/02_category_revenue.png" width="380" alt="Beverage revenue by category"> | <img src="outputs/linkedin/03_promotion_lift.png" width="380" alt="Promotional ROI hides in a thin tail: 4,910 to 873 to 36 SKUs"> |
 | <img src="outputs/linkedin/04_segments.png" width="380" alt="A quarter of households drive two-thirds of revenue"> | <img src="outputs/linkedin/05_what_if.png" width="380" alt="What-if: projected revenue change vs. discount depth"> |
 
-All slides live in [`outputs/linkedin/`](outputs/linkedin/).
 
 ## How to Run
 
