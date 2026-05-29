@@ -1,5 +1,33 @@
 # Promotion & Revenue Growth Analytics Platform
 
+> **Where do beverage promotions actually create value — and which customers drive the revenue?**
+> An end-to-end Revenue Growth Management (RGM) analysis on ~2.6M transactions from the
+> Dunnhumby *Complete Journey* dataset: promotion-lift modeling, household segmentation,
+> commercial KPIs, and what-if scenario planning — built in reproducible Python.
+
+![Python](https://img.shields.io/badge/Python-3.10+-3776AB?logo=python&logoColor=white)
+![pandas](https://img.shields.io/badge/pandas-data-150458?logo=pandas&logoColor=white)
+![matplotlib](https://img.shields.io/badge/matplotlib-viz-11557C)
+![License: MIT](https://img.shields.io/badge/License-MIT-green)
+
+<p align="center">
+  <img src="outputs/linkedin/01_cover.png" width="620" alt="Promotion & Revenue Growth Analytics — $8.06M revenue analyzed, $661K beverage revenue, 4,910 beverage SKUs, 64% of beverage revenue on promo">
+</p>
+
+### TL;DR — Key Insights
+
+- **Promotional ROI hides in a thin tail.** Of 4,910 beverage SKUs, only 873 have enough
+  evidence to measure reliably — and just **36** deliver ≥2.4× their category-average lift.
+  The typical promotion barely beats baseline; spend should concentrate on the stars.
+- **A quarter of households drive two-thirds of revenue.** High-Value buyers are 25% of
+  beverage households but **64%** of beverage revenue; Promo-Sensitive shoppers are 62.5%
+  of households yet only 32% of revenue.
+- **Carbonated soft drinks carry the category** — 59% of beverage revenue across 7 categories.
+- **Coupons are a minor lever** (1.86% redemption) relative to shelf discounts (63.6% of
+  beverage revenue is promoted).
+
+---
+
 ## Business Problem
 
 Revenue Growth Management (RGM) in consumer packaged goods is the discipline of
@@ -181,10 +209,12 @@ high-selling items).
 - 873 SKUs passed the noise filter (>= 50 units, >= 3 promo weeks, >= 3 non-promo weeks)
 - **36 SKUs deliver >= 2.4x category-average lift**; 61 deliver >= 2.0x
 - Top performer: product 1016982 in Carbonated Soft Drinks — **14.3x category-average lift**
-- Median product lift index is **0.948** — the typical promotion does not meaningfully
-  accelerate velocity.  The category mean (1.94x, unit-weighted) is driven by a long tail
-  of high performers.  **This is the central RGM insight: promotional investment is
-  concentrated in a small number of high-ROI SKUs.  Treating all SKUs equally destroys margin.**
+- Median promotion lift **across all measured beverage SKUs is 0.948x** — the typical
+  promotion does not meaningfully accelerate velocity. The unit-weighted mean (1.94x) is
+  dragged up by a long tail of high performers. (Note: 0.948x is the full-catalog median;
+  among the 873 noise-filtered SKUs, lift concentrates higher, which is where the 36 stars
+  emerge.) **This is the central RGM insight: promotional ROI is concentrated in a small
+  number of high-ROI SKUs. Treating all SKUs equally destroys margin.**
 - Promo revenue shares by category: Water 76.4%, Carbonated Soft Drinks 68.0%,
   Energy/Sports Drinks 67.7%, Juice 60.2%, Coffee 49.4%, Other Beverages 47.1%, Tea 46.0%.
 
@@ -307,14 +337,18 @@ Lift Index Avg = AVERAGE(promotion_performance[lift_index_vs_category])
   simulator across discount tiers (5/10/15/20%) and coupon scenarios for 7 beverage
   categories
 
-## Dashboard Screenshots
+## Presentation Deck
 
-[Insert screenshots after building Power BI dashboard]
+A five-slide carousel (1080×1080) summarizing the analysis, generated programmatically
+by `scripts/make_linkedin_visuals.py` directly from the exported data — fully reproducible,
+no manual chart edits.
 
-- ![Executive Summary](outputs/charts/dashboard_executive_placeholder.png)
-- ![Promotion Performance](outputs/charts/dashboard_promo_placeholder.png)
-- ![Segmentation](outputs/charts/dashboard_segments_placeholder.png)
-- ![What-If Simulator](outputs/charts/dashboard_whatif_placeholder.png)
+| | |
+|:-:|:-:|
+| <img src="outputs/linkedin/02_category_revenue.png" width="380" alt="Beverage revenue by category"> | <img src="outputs/linkedin/03_promotion_lift.png" width="380" alt="Promotional ROI hides in a thin tail: 4,910 to 873 to 36 SKUs"> |
+| <img src="outputs/linkedin/04_segments.png" width="380" alt="A quarter of households drive two-thirds of revenue"> | <img src="outputs/linkedin/05_what_if.png" width="380" alt="What-if: projected revenue change vs. discount depth"> |
+
+All slides live in [`outputs/linkedin/`](outputs/linkedin/).
 
 ## How to Run
 
@@ -338,3 +372,17 @@ python scripts/make_linkedin_visuals.py
 
 Then open the notebooks in `notebooks/` for the analysis narrative, and import
 `data/powerbi_exports/*.csv` into Power BI Desktop.
+
+## License
+
+The **code** in this repository is released under the [MIT License](LICENSE).
+
+The **data** is the Dunnhumby *Complete Journey* dataset, provided by Dunnhumby for
+non-commercial use and **not** redistributed here — see [Data Access](#data-access) for
+how to obtain it from the original source.
+
+## Author
+
+**Medhansh Rajdeo** — analytics & data science.
+This project demonstrates an end-to-end Revenue Growth Management workflow: raw data
+to cleaned models to commercial insight to communication-ready visuals.
