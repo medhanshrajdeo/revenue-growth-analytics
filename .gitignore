@@ -1,0 +1,26 @@
+# ---- Raw / licensed source data (Dunnhumby Complete Journey) ----
+# Not redistributed. Download from the source (see README) into data/raw/
+data/raw/
+archive.zip
+
+# ---- Large / regenerable intermediates ----
+# Parquet intermediates are rebuilt by the notebooks/src pipeline.
+data/processed/
+# 17MB transaction-level fact table (regenerable; too heavy for the repo).
+data/powerbi_exports/fact_transactions_beverage.csv
+
+# ---- Python ----
+__pycache__/
+*.py[cod]
+*.egg-info/
+.ipynb_checkpoints/
+.venv/
+venv/
+env/
+
+# ---- Tooling / local ----
+.claude/
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
